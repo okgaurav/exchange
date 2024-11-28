@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    container_name: my-custom-client
+    build: .
+    ports:
+      - "8088:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
+
+
+
+
+# docker-compose up --build
+# docker build -t my-spring-boot-app .
+# docker run -p 8080:8080 my-spring-boot-app
+# docker-compose up --build
