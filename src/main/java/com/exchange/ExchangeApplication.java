@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableCaching
-@EnableFeignClients
 public class ExchangeApplication {
     public static void main(String[] args) {
         SpringApplication.run(ExchangeApplication.class, args);
