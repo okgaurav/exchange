@@ -32,8 +32,8 @@ public class ExchangeController {
     }
 
     @PostMapping(GET_COIN_PATH)
-    public ResponseEntity<Mono<ExchangeCurrencyApiDto>> getExchange(@RequestBody ExchangeCurrencyApiDto currencyApiDto){
-        return new ResponseEntity<>(exchangeService.calculateExchangeRate(currencyApiDto), OK);
+    public ResponseEntity<Mono<ExchangeCurrencyApiDto>> getExchange(@RequestHeader("crypto-correlation-id")String correlationId,  @RequestBody ExchangeCurrencyApiDto currencyApiDto){
+        return new ResponseEntity<>(exchangeService.calculateExchangeRate(correlationId, currencyApiDto), OK);
     }
 
 }

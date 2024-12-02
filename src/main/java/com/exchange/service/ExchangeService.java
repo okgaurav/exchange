@@ -56,7 +56,8 @@ public class ExchangeService {
                 .collectList();
     }
 
-    public Mono<ExchangeCurrencyApiDto> calculateExchangeRate(ExchangeCurrencyApiDto exchangeApi) {
+    public Mono<ExchangeCurrencyApiDto> calculateExchangeRate(String correlationId, ExchangeCurrencyApiDto exchangeApi) {
+        LOGGER.debug("crypto correlationId found in exchange: {}", correlationId);
         var exchange = toEntity(exchangeApi);
         return getExchangeRate()
                 .filter(a -> a.getConversionRates().containsKey(exchange.getCurrency()))

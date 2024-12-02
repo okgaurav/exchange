@@ -38,3 +38,8 @@ eureka:
     registerWithEureka: true
     serviceUrl:
       defaultZone: http://localhost:8070/eureka/
+
+logging:
+  level:
+    com:
+      exchange: DEBUG
