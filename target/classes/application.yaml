@@ -19,13 +19,20 @@ management:
     web:
       exposure:
         include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
   info:
     env:
       enabled: true
   endpoint:
     shutdown:
       enabled: true
-
+  metrics:
+    tags:
+      application: ${spring.application.name}
 endpoints:
   shutdown:
     enabled: true
