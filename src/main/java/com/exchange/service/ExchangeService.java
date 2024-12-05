@@ -38,6 +38,7 @@ public class ExchangeService {
     }
 
     public Mono<ExchangeCurrency> getExchangeRate() {
+        LOGGER.info("Fetching exchange-rate data");
         ExchangeCurrency currencyCache = cache.getIfPresent(EXCHANGE_CACHE_KEY);
         if (currencyCache != null) {
             LOGGER.info("Fetching data from cache, Reducing one Call to Exchange Api");
